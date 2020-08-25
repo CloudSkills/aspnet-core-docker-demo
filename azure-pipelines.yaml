@@ -30,6 +30,13 @@ stages:
         location: $(location)
         csmFile: '$(System.DefaultWorkingDirectory)/**/containerRegistry-template.json'
         overrideParameters: '-registryName "$(acrName)" -registryLocation "$(location)" -registrySku standard'
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: 2.2.x
+        installationPath: $(Agent.ToolsDirectory)/dotnet        
   
     # Restore dependencies
     - task: DotNetCoreCLI@2
