@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
@@ -37,7 +37,7 @@
         {
             "type": "Microsoft.Web/sites",
             "name": "[parameters('webAppName')]",
-            "apiVersion": "2016-03-01",
+            "apiVersion": "2020-12-01",
             "location": "[resourceGroup().location]",
             "tags": {
                 "[concat('hidden-related:', '/subscriptions/', subscription().subscriptionId,'/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
@@ -87,7 +87,7 @@
             "apiVersion": "2017-10-01",
             "location": "[parameters('registryLocation')]",
             "properties": {
-                "adminUserEnabled": "true"
+                "adminUserEnabled": true
             }
         },
         {
