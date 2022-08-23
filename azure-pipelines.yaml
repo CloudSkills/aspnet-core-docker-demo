@@ -1,7 +1,7 @@
 trigger:
   branches:
     include: 
-    - master
+    - main
 variables:
   buildConfiguration: 'Release'
   location: 'West US 2'
